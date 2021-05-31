@@ -4,7 +4,7 @@ It is an Implementation of a text-based version of a Search Engine *(Similar to 
 Most search engines are built on top of an *inverted index*, or *index* for short, an index is a structure where, for each term, we have a list of documents that this term appears in.
 So, we'll build index based on the set of files.
 
-## Functions used in the our program (searchengine.py) 
+## Functions used in the our program *(searchengine.py)* 
  1. We then, create a index using `create_index` function. Which stores the words and the list of files in which a word appears in.
  2. The same `create_index` function has a parameter which stores the file names and there titles
  3. The common files are identified using a function `common`. This function takes in two lists as arguments, compares them and returns a list with the common files.
