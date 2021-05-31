@@ -1,9 +1,3 @@
-"""
-File: searchengine.py
----------------------
-You fill in this comment
-"""
-
 
 import os
 import sys
@@ -25,40 +19,6 @@ def create_index(filenames, index, file_titles):
     The function will update the index passed in to include the terms in the files
     in the list filenames.  Also, the file_titles dictionary will be updated to
     include files in the list of filenames.
-
-    >>> index = {}
-    >>> file_titles = {}
-    >>> create_index(['test1.txt'], index, file_titles)
-    >>> index
-    {'file': ['test1.txt'], '1': ['test1.txt'], 'title': ['test1.txt'], 'apple': ['test1.txt'], 'ball': ['test1.txt'], 'carrot': ['test1.txt']}
-    >>> file_titles
-    {'test1.txt': 'File 1 Title'}
-    >>> index = {}
-    >>> file_titles = {}
-    >>> create_index(['test2.txt'], index, file_titles)
-    >>> index
-    {'file': ['test2.txt'], '2': ['test2.txt'], 'title': ['test2.txt'], 'ball': ['test2.txt'], 'carrot': ['test2.txt'], 'dog': ['test2.txt']}
-    >>> file_titles
-    {'test2.txt': 'File 2 Title'}
-    >>> index = {}
-    >>> file_titles = {}
-    >>> create_index(['test1.txt', 'test2.txt'], index, file_titles)
-    >>> index
-    {'file': ['test1.txt', 'test2.txt'], '1': ['test1.txt'], 'title': ['test1.txt', 'test2.txt'], 'apple': ['test1.txt'], 'ball': ['test1.txt', 'test2.txt'], 'carrot': ['test1.txt', 'test2.txt'], '2': ['test2.txt'], 'dog': ['test2.txt']}
-    >>> index = {}
-    >>> file_titles = {}
-    >>> create_index(['test1.txt', 'test2.txt', 'test2.txt'], index, file_titles)
-    >>> index
-    {'file': ['test1.txt', 'test2.txt'], '1': ['test1.txt'], 'title': ['test1.txt', 'test2.txt'], 'apple': ['test1.txt'], 'ball': ['test1.txt', 'test2.txt'], 'carrot': ['test1.txt', 'test2.txt'], '2': ['test2.txt'], 'dog': ['test2.txt']}
-    >>> file_titles
-    {'test1.txt': 'File 1 Title', 'test2.txt': 'File 2 Title'}
-    >>> index = {'file': ['test1.txt'], '1': ['test1.txt'], 'title': ['test1.txt'], 'apple': ['test1.txt'], 'ball': ['test1.txt'], 'carrot': ['test1.txt']}
-    >>> file_titles = {'test1.txt': 'File 1 Title'}
-    >>> create_index([], index, file_titles)
-    >>> index
-    {'file': ['test1.txt'], '1': ['test1.txt'], 'title': ['test1.txt'], 'apple': ['test1.txt'], 'ball': ['test1.txt'], 'carrot': ['test1.txt']}
-    >>> file_titles
-    {'test1.txt': 'File 1 Title'}
     """
     for x in filenames:
         entries = get_file_entries(open(x, "r"))
@@ -89,29 +49,6 @@ def search(index, query):
 
     The function returns a list of the names of all the files that contain *all* of the
     terms in the query (using the index passed in).
-
-    >>> index = {}
-    >>> create_index(['test1.txt', 'test2.txt'], index, {})
-    >>> search(index, 'apple')
-    ['test1.txt']
-    >>> search(index, 'ball')
-    ['test1.txt', 'test2.txt']
-    >>> search(index, 'file')
-    ['test1.txt', 'test2.txt']
-    >>> search(index, '2')
-    ['test2.txt']
-    >>> search(index, 'carrot')
-    ['test1.txt', 'test2.txt']
-    >>> search(index, 'dog')
-    ['test2.txt']
-    >>> search(index, 'nope')
-    []
-    >>> search(index, 'apple carrot')
-    ['test1.txt']
-    >>> search(index, 'apple ball file')
-    ['test1.txt']
-    >>> search(index, 'apple ball nope')
-    []
     """
     lt = []
     if ' ' in query:
@@ -131,9 +68,6 @@ def common(list1, list2):
                 list_0.append(i)
                 break
     return list_0
-
-##### YOU SHOULD NOT NEED TO MODIFY ANY CODE BELOW THIS LINE (UNLESS YOU'RE ADDING EXTENSIONS) #####
-
 
 def do_searches(index, file_titles):
     """
@@ -159,16 +93,6 @@ def do_searches(index, file_titles):
 
 
 def textfiles_in_dir(directory):
-    """
-    DO NOT MODIFY
-    Given the name of a valid directory, returns a list of the .txt
-    file names within it.
-
-    Input:
-        directory (string): name of directory
-    Returns:
-        list of (string) names of .txt files in directory
-    """
     filenames = []
 
     for filename in os.listdir(directory):
